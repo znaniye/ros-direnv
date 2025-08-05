@@ -4,9 +4,10 @@ set -euo pipefail
 
 mkdir -p .buildenv
 
+FLAKE="$1"
 if ! [[ -f ./.buildenv/.envrc ]]; then
     cat > ./.buildenv/.envrc <<EOF
-# source /opt/ros/rolling/setup.bash
+use flake ..#${FLAKE}
 EOF
 fi
 
